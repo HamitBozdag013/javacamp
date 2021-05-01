@@ -2,24 +2,90 @@ package oopIntro;
 
 public class Product {
 	
-	public Product() {  //constructor
-		System.out.println("Ben çalýþtým.");
-	}
-	
-	public Product(int id, String name, double unitPrice, String detail) { //constructor
-		this();                  // Üstteki parametersiz constructor ýn bir kere bu constructor dan çalýþmasýný saðlar
-		
-		this.id = id;            // this --> bu class 'daki anlamýna gelir. this.id bu class 'daki id demektir.
-		this.name = name;
-		this.unitPrice = unitPrice;
-		this.detail = detail;
-		
-	}
 	
 	//class properties
-	int id;
-	String name;
-	double unitPrice;
-	String detail;
+	//encapsulation - kapsülleme
+		private int id;
+		private String name;
+		private double unitPrice;
+		private String detail;
+		private double discount; //indirim oraný
+		
+		
+		//final özellikleri sadece constructor da set edilebilir hale getirir.
+		//private ise özellikleri sadece bu class da set edilebilir hale getirir.
+		
+		
+		public Product() {
+			
+		}
+		
+				
+		
+		public Product(int id, String name, double unitPrice, String detail, double discount) {
+			super();
+			this.id = id;
+			this.name = name;
+			this.unitPrice = unitPrice;
+			this.detail = detail;
+			this.discount = discount;
+			
+		}
+		
+		//get --> okunabilir özelliði
+		//set --> yazýlabilir özelliði
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public double getUnitPrice() {
+			return unitPrice;
+		}
+
+		public void setUnitPrice(double unitPrice) {
+			this.unitPrice = unitPrice;
+		}
+
+		public String getDetail() {
+			return detail;
+		}
+
+		public void setDetail(String detail) {
+			this.detail = detail;
+		}
+
+		public double getDiscount() {
+			return discount;
+		}
+
+		public void setDiscount(double discount) {
+			this.discount = discount;
+		}
+
+		public double getUnitPriceAfterDiscount() {
+			return this.unitPrice - (this.unitPrice * this.discount / 100);
+		}
+
+
+		
+		
+		
+	
+
+	
+	
 
 }
